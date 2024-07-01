@@ -1,0 +1,58 @@
+CREATE DATABASE LibraryManagement;
+USE LibraryManagement;
+CREATE TABLE Books (
+    BookID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    Author VARCHAR(255) NOT NULL,
+    Publisher VARCHAR(255),
+    YearPublished YEAR,
+    ISBN VARCHAR(13) UNIQUE NOT NULL,
+    Genre VARCHAR(100),
+    CopiesAvailable INT DEFAULT 1
+);
+CREATE TABLE Members (
+    MemberID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(100) NOT NULL,
+    LastName VARCHAR(100) NOT NULL,
+    Address VARCHAR(255),
+    PhoneNumber VARCHAR(15),
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    JoinDate DATE DEFAULT CURDATE()
+);
+CREATE TABLE Loans (
+    LoanID INT PRIMARY KEY AUTO_INCREMENT,
+    BookID INT NOT NULL,
+    MemberID INT NOT NULL,
+    LoanDate DATE DEFAULT CURDATE(),
+    ReturnDate DATE,
+    FOREIGN KEY (BookID) REFERENCES Books(BookID),
+    FOREIGN KEY (MemberID) REFERENCES Members(MemberID)
+CREATE DATABASE LibraryManagement;
+USE LibraryManagement;
+CREATE TABLE Books (
+    BookID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    Author VARCHAR(255) NOT NULL,
+    Publisher VARCHAR(255),
+    YearPublished YEAR,
+    ISBN VARCHAR(13) UNIQUE NOT NULL,
+    Genre VARCHAR(100),
+    CopiesAvailable INT DEFAULT 1
+);
+CREATE TABLE Members (
+    MemberID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(100) NOT NULL,
+    LastName VARCHAR(100) NOT NULL,
+    Address VARCHAR(255),
+    PhoneNumber VARCHAR(15),
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    JoinDate DATE DEFAULT CURDATE()
+);
+CREATE TABLE Loans (
+    LoanID INT PRIMARY KEY AUTO_INCREMENT,
+    BookID INT NOT NULL,
+    MemberID INT NOT NULL,
+    LoanDate DATE DEFAULT CURDATE(),
+    ReturnDate DATE,
+    FOREIGN KEY (BookID) REFERENCES Books(BookID),
+    FOREIGN KEY (MemberID) REFERENCES Members(MemberID)
